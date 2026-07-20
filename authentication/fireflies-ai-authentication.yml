@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/fundamentals/authorization
+docs: https://docs.fireflies.ai/fundamentals/authorization
+summary:
+  types: [http, oauth2]
+  http_schemes: [bearer]
+  oauth2_flows: [authorizationCode]
+  primary: bearer
+schemes:
+  - name: bearerAuth
+    type: http
+    scheme: bearer
+    description: >-
+      Standard bearer-token authentication. Include an Authorization header
+      "Authorization: Bearer <API_KEY>" on every request to the GraphQL endpoint.
+      API keys are generated in the Fireflies app under Settings > Developer
+      Settings (Integrations > Fireflies API).
+    location: header
+    header: Authorization
+    sources: [docs]
+  - name: oauth2
+    type: oauth2
+    description: >-
+      OAuth 2.0 authorization-code flow with PKCE (S256), used by the Fireflies
+      MCP server and OAuth apps. Advertised via RFC 8414 metadata at
+      /.well-known/oauth-authorization-server. Supports dynamic client
+      registration and refresh tokens.
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://api.fireflies.ai/authorize
+        tokenUrl: https://api.fireflies.ai/token
+        revocationUrl: https://api.fireflies.ai/revoke
+        registrationUrl: https://api.fireflies.ai/register
+        pkce: S256
+        grant_types: [authorization_code, refresh_token]
+        scopes:
+          profile: Access to profile information.
+          email: Access to the account email address.
+    sources: [well-known/fireflies-ai-oauth-authorization-server.json]
+notes: >-
+  The GraphQL data API is documented as bearer-token only; OAuth 2.0 is the
+  authorization mechanism behind the hosted MCP server and third-party OAuth apps.
