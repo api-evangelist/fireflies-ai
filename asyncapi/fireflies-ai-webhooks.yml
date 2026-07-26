@@ -1,0 +1,53 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/graphql-api/webhooks-v2
+spec_type: Webhooks
+docs:
+  webhooks_v2: https://docs.fireflies.ai/graphql-api/webhooks-v2
+  webhooks_v1: https://docs.fireflies.ai/graphql-api/webhooks
+  realtime_api: https://docs.fireflies.ai/realtime-api/overview
+delivery:
+  method: POST
+  content_type: application/json
+  ack: 2xx within 10 seconds
+  headers: [Content-Type, User-Agent, X-Hub-Signature]
+security:
+  signature_header: X-Hub-Signature
+  algorithm: HMAC-SHA256
+  format: sha256=<hex-encoded-hmac-sha256-digest>
+  secret: user-configured signing secret; verify with timing-safe comparison over the raw request body.
+payload_fields:
+  - name: event
+    type: string
+    required: true
+    description: The event type identifier.
+  - name: timestamp
+    type: number
+    required: true
+    description: Unix timestamp in milliseconds when the event fired.
+  - name: meeting_id
+    type: string
+    required: true
+    description: Meeting identifier.
+  - name: client_reference_id
+    type: string
+    required: false
+    description: Custom identifier for correlating uploads.
+events:
+  - name: meeting.transcribed
+    description: A meeting has been transcribed and the transcript is ready.
+  - name: meeting.summarized
+    description: A meeting summary has been generated.
+  - name: meeting.bot_joined
+    description: The Fireflies (Fred) bot has joined a meeting.
+realtime:
+  transport: websocket
+  auth: token-based
+  docs: https://docs.fireflies.ai/realtime-api/event-schema
+  notes: >-
+    Separate from webhooks, the Realtime API streams live transcription events
+    over a WebSocket connection with incremental transcript segments. No published
+    AsyncAPI document was located; the event schema is documented in the docs.
+notes: >-
+  Fireflies documents webhooks (V1 + granular V2) and a WebSocket Realtime API but
+  publishes no AsyncAPI document; this file captures the webhook/event catalog.

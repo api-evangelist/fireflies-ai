@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.fireflies.ai/.well-known/oauth-authorization-server
+standards:
+  - id: graphql
+    conforms: true
+    evidence: API is a GraphQL service at https://api.fireflies.ai/graphql.
+  - id: oauth2
+    conforms: true
+    evidence: RFC 8414 authorization-server metadata published; authorization_code + refresh_token grants.
+  - id: rfc8414-oauth-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server returns 200 with full metadata.
+  - id: rfc7636-pkce
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256.
+  - id: rfc7591-dynamic-client-registration
+    conforms: true
+    evidence: registration_endpoint published in authorization-server metadata.
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration returns 404; only OAuth 2.0 metadata is published.
+  - id: ocsf-audit-events
+    conforms: true
+    evidence: auditEvents query returns OCSF-compliant audit events (docs schema/audit-event).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use the GraphQL errors[] envelope, not application/problem+json.
+  - id: hmac-webhook-signing
+    conforms: true
+    evidence: Webhooks V2 sign payloads with HMAC-SHA256 via the X-Hub-Signature header.

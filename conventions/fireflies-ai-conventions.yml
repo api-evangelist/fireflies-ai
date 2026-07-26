@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/fundamentals/concepts
+docs:
+  concepts: https://docs.fireflies.ai/fundamentals/concepts
+  authorization: https://docs.fireflies.ai/fundamentals/authorization
+  errors: https://docs.fireflies.ai/fundamentals/errors
+  limits: https://docs.fireflies.ai/fundamentals/limits
+  introspection: https://docs.fireflies.ai/fundamentals/introspection
+api_style: graphql
+endpoint: https://api.fireflies.ai/graphql
+authentication:
+  style: bearer
+  header: "Authorization: Bearer <API_KEY>"
+  see: authentication/fireflies-ai-authentication.yml
+pagination:
+  style: skip-limit
+  params: [skip, limit]
+  notes: >-
+    List queries (e.g. transcripts, bites) accept skip and limit arguments for
+    offset-based pagination. GraphQL clients select exactly the fields needed.
+idempotency:
+  supported: false
+  correlation:
+    field: client_reference_id
+    notes: >-
+      Upload and webhook payloads carry an optional client_reference_id to
+      correlate an uploadAudio request with its later meeting.transcribed webhook.
+      This is a correlation identifier, not an idempotency-replay key.
+request_tracing:
+  notes: GraphQL responses surface errors with extensions.code and extensions.status for diagnosis.
+versioning:
+  scheme: semver
+  current: 2.24.1
+  see: lifecycle/fireflies-ai-lifecycle.yml
+error_envelope:
+  location: errors[]
+  fields: [message, code, extensions.code, extensions.status, extensions.metadata]
+  see: errors/fireflies-ai-error-codes.yml
+rate_limiting:
+  signal: too_many_requests error with extensions.metadata.retryAfter timestamp
+  tiers:
+    free: 50 requests/day
+    pro: 500 requests/day
+    business_enterprise: 60 requests/min
+  specialized:
+    add_to_live: 3 requests / 20 minutes
+    share_meeting: 10 requests / hour (up to 50 emails per request)
+  see: rate-limits/fireflies-ai-rate-limits.yml

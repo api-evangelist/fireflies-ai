@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/fundamentals/limits
+docs: https://docs.fireflies.ai/fundamentals/limits
+signal: too_many_requests error (extensions.metadata.retryAfter timestamp)
+rate_limits:
+  - tier: free
+    limit_count: 50
+    window: day
+  - tier: pro
+    limit_count: 500
+    window: day
+  - tier: business_enterprise
+    limit_count: 60
+    window: minute
+  - endpoint: addToLive
+    limit_count: 3
+    window: 20 minutes
+  - endpoint: shareMeeting
+    limit_count: 10
+    window: hour
+    notes: Supports up to 50 email addresses per request.
+upload_limits:
+  audio: 200MB (all tiers)
+  video_free: 100MB
+  video_paid: 1.5GB
+  minimum_payload: 50KB
+notes: MCP server shares the same per-plan rate limits as the GraphQL API.

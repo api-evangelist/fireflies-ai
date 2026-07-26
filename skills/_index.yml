@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: generated
+source: https://docs.fireflies.ai/graphql-api
+notes: >-
+  Agent Skills grounded in real documented Fireflies GraphQL operations
+  (docs.fireflies.ai/graphql-api). The API is GraphQL, so operations are named
+  queries/mutations rather than OpenAPI operationIds.
+skills:
+  - file: fireflies-ai-upload-and-fetch-transcript.md
+    name: Upload audio and fetch its transcript
+    api: https://api.fireflies.ai/graphql
+    operations: [uploadAudio, transcript]
+  - file: fireflies-ai-list-and-summarize-meetings.md
+    name: List recent meetings and pull summaries
+    api: https://api.fireflies.ai/graphql
+    operations: [transcripts, transcript]
+  - file: fireflies-ai-add-bot-to-live-meeting.md
+    name: Add the Fireflies bot to a live meeting
+    api: https://api.fireflies.ai/graphql
+    operations: [addToLive, activeMeetings]

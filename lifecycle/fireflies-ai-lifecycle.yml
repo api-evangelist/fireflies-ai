@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/additional-info/change-log
+versioning:
+  scheme: semver
+  current: 2.24.1
+  docs: https://docs.fireflies.ai/additional-info/change-log
+deprecation:
+  policy_url: https://docs.fireflies.ai/additional-info/deprecated
+  notes: >-
+    Fireflies maintains a dedicated "Deprecated" reference listing fields marked
+    for removal from the GraphQL schema.
+changelog: https://docs.fireflies.ai/additional-info/change-log
+whats_new: https://docs.fireflies.ai/getting-started/whats-new
+status_page: null
+deprecated_operations: []
+notes: >-
+  GraphQL API versioned with semantic versioning; deprecations are surfaced on a
+  standing Deprecated page rather than via Sunset headers. No public status page
+  was located during this pass.

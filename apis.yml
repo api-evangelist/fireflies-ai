@@ -1,8 +1,14 @@
 aid: fireflies-ai
-name: Fireflies Ai
-description: Fireflies Ai is a company surfaced as a portfolio company of canaan-partners and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+name: Fireflies.ai
+description: >-
+  Fireflies.ai is an AI meeting assistant that records, transcribes, summarizes,
+  searches, and analyzes voice conversations across Zoom, Google Meet, Microsoft
+  Teams, Webex, and dialed calls. It offers 95%+ transcription accuracy in 100+
+  languages, AI-generated summaries with action items, conversation analytics,
+  soundbites, and the AskFred assistant. Developers integrate via a public GraphQL
+  API (bearer-token auth, with OAuth 2.0 for apps and the hosted MCP server) that
+  exposes transcripts, users, channels, analytics, audio upload, live-meeting bot
+  control, webhooks, and a WebSocket Realtime transcription stream.
 url: https://raw.githubusercontent.com/api-evangelist/fireflies-ai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,14 +16,122 @@ x-backed-by:
 - canaan-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://fireflies.ai/favicon.ico
 tags:
 - Company
-apis: []
+- Meetings
+- Transcription
+- Speech to Text
+- Conversation Intelligence
+- Artificial Intelligence
+- GraphQL
+- MCP
+- Productivity
+apis:
+- aid: fireflies-ai-graphql
+  name: Fireflies.ai GraphQL API
+  description: >-
+    Public GraphQL API for Fireflies.ai — query transcripts, users, channels,
+    bites, analytics, and AskFred threads; upload audio; control the live-meeting
+    bot; and subscribe to webhooks. Single endpoint, bearer-token authenticated.
+  humanURL: https://docs.fireflies.ai/
+  baseURL: https://api.fireflies.ai/graphql
+  tags:
+  - GraphQL
+  - Transcription
+  - Meetings
+  properties:
+  - type: Documentation
+    url: https://docs.fireflies.ai/
+  - type: APIReference
+    url: https://docs.fireflies.ai/graphql-api/query/transcripts
+  - type: GraphQL
+    url: https://api.fireflies.ai/graphql
+  - type: GettingStarted
+    url: https://docs.fireflies.ai/getting-started/quickstart
+common:
+- type: DomainSecurity
+  url: security/fireflies-ai-domain-security.yml
+- type: DeveloperPortal
+  url: https://fireflies.ai/api
+- type: Documentation
+  url: https://docs.fireflies.ai/
+- type: APIReference
+  url: https://docs.fireflies.ai/graphql-api/query/transcripts
+- type: GettingStarted
+  url: https://docs.fireflies.ai/getting-started/quickstart
+- type: Blog
+  url: https://fireflies.ai/blog
+- type: Support
+  url: https://guide.fireflies.ai/
+- type: GitHubOrganization
+  url: https://github.com/firefliesai
+- type: Pricing
+  url: https://fireflies.ai/pricing
+- type: SignUp
+  url: https://app.fireflies.ai/login
+- type: TermsOfService
+  url: https://fireflies.ai/terms-of-service
+- type: PrivacyPolicy
+  url: https://fireflies.ai/privacy
+- type: TrustCenter
+  url: https://trust.fireflies.ai/
+- type: LLMsTxt
+  url: llms/fireflies-ai-llms.txt
+- type: WellKnown
+  url: well-known/fireflies-ai-well-known.yml
+- type: MCPServer
+  url: mcp/fireflies-ai-mcp.yml
+- type: Authentication
+  url: authentication/fireflies-ai-authentication.yml
+- type: OAuthScopes
+  url: scopes/fireflies-ai-scopes.yml
+- type: ErrorCatalog
+  url: errors/fireflies-ai-error-codes.yml
+- type: RateLimits
+  url: rate-limits/fireflies-ai-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/fireflies-ai-lifecycle.yml
+- type: Deprecation
+  url: https://docs.fireflies.ai/additional-info/deprecated
+- type: ChangeLog
+  url: changelog/fireflies-ai-changelog.yml
+- type: Conventions
+  url: conventions/fireflies-ai-conventions.yml
+- type: Conformance
+  url: conformance/fireflies-ai-conformance.yml
+- type: Webhooks
+  url: asyncapi/fireflies-ai-webhooks.yml
+- type: DataModel
+  url: data-model/fireflies-ai-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/fireflies-ai-packages.yml
+- type: SDKs
+  url: packages/fireflies-ai-packages.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

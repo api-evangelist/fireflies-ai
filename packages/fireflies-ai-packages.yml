@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.npmjs.com/org/firefliesai
+packages:
+  - language: javascript
+    registry: npm
+    name: "@firefliesai/fireflies-node-sdk"
+    version: 1.1.3
+    url: https://www.npmjs.com/package/@firefliesai/fireflies-node-sdk
+    repository: https://github.com/firefliesai/fireflies-node-sdk
+    install: npm install @firefliesai/fireflies-node-sdk
+    description: Official Node.js SDK for the Fireflies.ai GraphQL API.
+    official: true
+  - language: javascript
+    registry: npm
+    name: "@firefliesai/n8n-nodes-fireflies"
+    url: https://www.npmjs.com/package/@firefliesai/n8n-nodes-fireflies
+    repository: https://github.com/firefliesai/n8n-nodes-fireflies
+    install: npm install @firefliesai/n8n-nodes-fireflies
+    description: Official n8n community node integrating the Fireflies.ai API for workflow automation.
+    official: true
+  - language: php
+    registry: packagist
+    name: laravel-fireflies
+    url: https://github.com/firefliesai/laravel-fireflies
+    repository: https://github.com/firefliesai/laravel-fireflies
+    description: Official Laravel wrapper around the Fireflies.ai GraphQL API (published under the firefliesai org).
+    official: true
+notes: >-
+  First-party libraries published under the firefliesai npm org and GitHub org.
+  Numerous third-party wrappers exist (e.g. sudotong/fireflies-node, Pipedream,
+  gongrzhe/server-fireflies-mcp) but are not marked official here.

@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.fireflies.ai/.well-known/oauth-authorization-server
+docs: https://docs.fireflies.ai/fundamentals/authorization
+schemes:
+  - name: oauth2
+    source: well-known/fireflies-ai-oauth-authorization-server.json
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://api.fireflies.ai/authorize
+        tokenUrl: https://api.fireflies.ai/token
+        pkce: S256
+scopes:
+  - scope: profile
+    description: Access to profile information.
+    flows: [authorizationCode]
+    sources: [well-known/fireflies-ai-oauth-authorization-server.json]
+  - scope: email
+    description: Access to the account email address.
+    flows: [authorizationCode]
+    sources: [well-known/fireflies-ai-oauth-authorization-server.json]
+notes: >-
+  Scopes are those advertised in the RFC 8414 authorization-server metadata
+  (scopes_supported: profile, email). The bearer-token GraphQL API itself is not
+  scope-gated; access is governed by team role and plan tier.

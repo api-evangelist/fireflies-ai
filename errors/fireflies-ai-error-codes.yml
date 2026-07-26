@@ -1,0 +1,61 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/miscellaneous/error-codes
+format: graphql
+envelope:
+  location: errors[]
+  fields:
+    - errors[].message        # human-readable message
+    - errors[].code           # machine code
+    - errors[].extensions.code
+    - errors[].extensions.status     # HTTP status equivalent
+    - errors[].extensions.metadata   # error-specific object (e.g. retryAfter)
+error_codes:
+  - code: invalid_arguments
+    meaning: Malformed or invalid query parameters provided.
+    action: Review field constraints; verify data types match requirements.
+  - code: object_not_found
+    meaning: Referenced resource doesn't exist (e.g., userId).
+    action: Confirm the resource ID is correct and exists.
+  - code: forbidden
+    meaning: Insufficient permissions for the requested action.
+    action: Verify your authorization level for this operation.
+  - code: paid_required
+    meaning: Action requires a paid subscription tier.
+    action: Upgrade to the specified plan tier.
+  - code: not_in_team
+    meaning: User is not a member of your team.
+    action: Ensure the userId belongs to your team.
+  - code: require_elevated_privilege
+    meaning: Admin-only operation attempted by non-admin.
+    action: Request admin status or contact team admin.
+  - code: account_cancelled
+    meaning: Account inactive due to non-payment or suspension.
+    action: Contact support to restore account access.
+  - code: args_required
+    meaning: Missing one or more mandatory parameters.
+    action: Supply all required fields listed in metadata.
+  - code: too_many_requests
+    meaning: Rate limit exceeded.
+    action: Wait until the specified retryAfter timestamp before retrying.
+  - code: payload_too_small
+    meaning: Upload file under the 50KB minimum.
+    action: Upload files larger than 50KB.
+  - code: request_timeout
+    meaning: Request processing exceeded timeout limit.
+    action: Retry or contact support if persistent.
+  - code: invalid_language_code
+    meaning: Unsupported language code provided.
+    action: Use a supported language code from the API documentation.
+  - code: admin_must_exist
+    meaning: Cannot remove the sole admin from a team.
+    action: Designate another admin before removing this one.
+  - code: unsupported_platform
+    meaning: Meeting platform URL not supported.
+    action: Use a supported meeting platform.
+  - code: require_ai_credits
+    meaning: Insufficient AI credits for operation.
+    action: Purchase additional credits or upgrade plan.
+  - code: invariant_violation
+    meaning: Unexpected internal system state.
+    action: Retry request; contact support if recurring.

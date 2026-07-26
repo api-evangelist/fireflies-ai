@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.fireflies.ai/.well-known/oauth-authorization-server
+host: https://api.fireflies.ai
+documents:
+  - path: /.well-known/oauth-authorization-server   # RFC 8414 OAuth 2.0 Authorization Server Metadata
+    status: 200
+    file: fireflies-ai-oauth-authorization-server.json
+  - path: /.well-known/openid-configuration          # OIDC discovery
+    status: 404
+  - path: /.well-known/security.txt                   # RFC 9116
+    status: 404
+  - path: /.well-known/api-catalog                    # RFC 9727
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+notes: >-
+  api.fireflies.ai publishes RFC 8414 OAuth 2.0 Authorization Server Metadata
+  (authorization_code + refresh_token grants, PKCE S256, scopes profile/email,
+  dynamic client registration). fireflies.ai and docs.fireflies.ai host hosts
+  return 404 for all probed well-known paths.

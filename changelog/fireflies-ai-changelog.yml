@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/additional-info/change-log
+scheme: semver
+current_version: 2.24.1
+docs: https://docs.fireflies.ai/additional-info/change-log
+entries:
+  - version: 2.24.1
+    type: addition
+    breaking: false
+    highlights:
+      - Increased API rate limit for Pro plan users from 50 to 500 requests per day.
+      - Free tier remains 50 requests/day; Business/Enterprise remain 60 requests/min; MCP server shares these limits.
+  - version: 2.23.2
+    type: enhancement
+    breaking: false
+    highlights:
+      - deleteTranscript mutation now permits users to delete their own meetings (previously admin-only); team admins retain authority to delete others' meetings.
+  - version: 2.23.1
+    type: fix
+    breaking: false
+    highlights:
+      - Fixed skip parameter validation in the Bites query (skip 0 was incorrectly rejected).
+  - version: 2.23.0
+    type: addition
+    breaking: false
+    highlights:
+      - Added is_live boolean field to the Transcript schema (active/paused status).
+      - Expanded the sentences field to support live caption streaming.
+notes: >-
+  Changelog entries are version-numbered (newest first); the source page does not
+  attach calendar dates to each entry.

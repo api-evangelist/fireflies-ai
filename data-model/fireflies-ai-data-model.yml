@@ -1,0 +1,79 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.fireflies.ai/schema/
+docs: https://docs.fireflies.ai/graphql-api/query/transcript
+notes: >-
+  Entity graph derived from the documented Fireflies GraphQL schema (docs.fireflies.ai/schema).
+  The API is GraphQL; relationships reflect documented object references rather than
+  OpenAPI $refs.
+entities:
+  - name: User
+    description: A Fireflies account/team member.
+    query: user / users
+  - name: Transcript
+    description: A transcribed meeting with sentences, speakers, summary, and analytics.
+    query: transcript / transcripts
+  - name: Bite
+    description: A soundbite clip created from a transcript.
+    query: bite / bites
+  - name: Channel
+    description: A folder/channel that organizes meetings.
+    query: channel / channels
+  - name: AskFredThread
+    description: An AskFred AI conversation thread over meeting data.
+    query: askFredThread / askFredThreads
+  - name: Analytics
+    description: Conversation/meeting analytics for a team or user.
+    query: analytics
+  - name: AuditEvent
+    description: OCSF-compliant audit event for enterprise teams.
+    query: auditEvents
+  - name: AppOutput
+    description: Output of an AI App run against a meeting.
+    query: apps
+  - name: Contact
+    description: A contact derived from meeting participation.
+    query: contacts
+  - name: UserGroup
+    description: A group of users within a team.
+    query: userGroups
+  - name: ActiveMeeting
+    description: An in-progress (live) meeting.
+    query: activeMeetings
+relationships:
+  - from: Transcript
+    to: User
+    type: belongs_to
+    via: user/host
+  - from: Transcript
+    to: Channel
+    type: belongs_to
+    via: channel_id
+  - from: Bite
+    to: Transcript
+    type: belongs_to
+    via: transcript_id
+  - from: AppOutput
+    to: Transcript
+    type: belongs_to
+    via: transcript_id
+  - from: AskFredThread
+    to: User
+    type: belongs_to
+    via: user
+  - from: Channel
+    to: Transcript
+    type: has_many
+    via: channel_id
+  - from: User
+    to: Transcript
+    type: has_many
+    via: user
+  - from: UserGroup
+    to: User
+    type: has_many
+    via: members
+  - from: Analytics
+    to: User
+    type: belongs_to
+    via: user_id
