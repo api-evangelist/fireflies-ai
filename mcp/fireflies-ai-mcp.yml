@@ -7,53 +7,58 @@ server:
   transport: http
   url: https://api.fireflies.ai/mcp
   auth:
-    - oauth2      # OAuth with Fireflies account (RFC 8414 metadata at /.well-known/oauth-authorization-server)
-    - bearer      # Authorization: Bearer <API_KEY>
+  - oauth2
+  - bearer
   install:
     client: mcp-remote
-    example: >-
-      npx mcp-remote https://api.fireflies.ai/mcp --header "Authorization: Bearer YOUR_API_KEY"
+    example: 'npx mcp-remote https://api.fireflies.ai/mcp --header "Authorization: Bearer YOUR_API_KEY"'
 docs: https://docs.fireflies.ai/mcp-tools/overview
 tools:
-  - name: fireflies_search
-    description: Advanced search for meeting transcripts using mini grammar syntax (experimental).
-  - name: fireflies_get_transcripts
-    description: Query multiple meetings with structured filters, returning metadata and summaries.
-  - name: fireflies_get_transcript
-    description: Fetch detailed transcript by ID with sentences, speakers, and timestamps.
-  - name: fireflies_fetch
-    description: Retrieve complete meeting data including transcript, summary, and metadata (experimental).
-  - name: fireflies_get_summary
-    description: Fetch meeting summary with action items, keywords, and overview.
-  - name: fireflies_get_active_meetings
-    description: Retrieve currently active or paused in-progress meetings.
-  - name: fireflies_get_analytics
-    description: Retrieve team and per-user meeting analytics with conversation metrics.
-  - name: fireflies_share_meeting
-    description: Share a meeting transcript with specified email addresses.
-  - name: fireflies_revoke_meeting_access
-    description: Revoke previously shared meeting access for a specific user.
-  - name: fireflies_update_meeting_title
-    description: Update the title of a meeting transcript.
-  - name: fireflies_move_meeting
-    description: Move one or more meeting transcripts to a specified channel/folder.
-  - name: fireflies_list_channels
-    description: List all channels/folders available to the authenticated user.
-  - name: fireflies_get_channel
-    description: Retrieve details of a specific channel/folder by its ID.
-  - name: fireflies_get_soundbites
-    description: Fetch short shareable audio/transcript clips from meetings.
-  - name: fireflies_create_soundbite
-    description: Create a soundbite (clip) from a meeting transcript.
-  - name: fireflies_get_user
-    description: Fetch user account details and profile information.
-  - name: fireflies_get_usergroups
-    description: Fetch user groups for the authenticated user or team.
-  - name: fireflies_get_user_contacts
-    description: Fetch contact list sorted by most recent meeting date.
-  - name: fireflies_get_rule_executions
-    description: Retrieve rule execution logs showing triggered automation rules.
-notes: >-
-  Fireflies also ships a documentation MCP server (docs) for API reference lookups;
-  this manifest describes the data-plane MCP server at api.fireflies.ai/mcp. Rate
-  limits match the GraphQL API (see rate-limits).
+- name: fireflies_search
+  description: Advanced search for meeting transcripts using mini grammar syntax (experimental).
+- name: fireflies_get_transcripts
+  description: Query multiple meetings with structured filters, returning metadata and summaries.
+- name: fireflies_get_transcript
+  description: Fetch detailed transcript by ID with sentences, speakers, and timestamps.
+- name: fireflies_fetch
+  description: Retrieve complete meeting data including transcript, summary, and metadata (experimental).
+- name: fireflies_get_summary
+  description: Fetch meeting summary with action items, keywords, and overview.
+- name: fireflies_get_active_meetings
+  description: Retrieve currently active or paused in-progress meetings.
+- name: fireflies_get_analytics
+  description: Retrieve team and per-user meeting analytics with conversation metrics.
+- name: fireflies_share_meeting
+  description: Share a meeting transcript with specified email addresses.
+- name: fireflies_revoke_meeting_access
+  description: Revoke previously shared meeting access for a specific user.
+- name: fireflies_update_meeting_title
+  description: Update the title of a meeting transcript.
+- name: fireflies_move_meeting
+  description: Move one or more meeting transcripts to a specified channel/folder.
+- name: fireflies_list_channels
+  description: List all channels/folders available to the authenticated user.
+- name: fireflies_get_channel
+  description: Retrieve details of a specific channel/folder by its ID.
+- name: fireflies_get_soundbites
+  description: Fetch short shareable audio/transcript clips from meetings.
+- name: fireflies_create_soundbite
+  description: Create a soundbite (clip) from a meeting transcript.
+- name: fireflies_get_user
+  description: Fetch user account details and profile information.
+- name: fireflies_get_usergroups
+  description: Fetch user groups for the authenticated user or team.
+- name: fireflies_get_user_contacts
+  description: Fetch contact list sorted by most recent meeting date.
+- name: fireflies_get_rule_executions
+  description: Retrieve rule execution logs showing triggered automation rules.
+notes: Fireflies also ships a documentation MCP server (docs) for API reference lookups; this manifest
+  describes the data-plane MCP server at api.fireflies.ai/mcp. Rate limits match the GraphQL API (see
+  rate-limits).
+deployment:
+  mode: remote
+  endpoint: https://api.fireflies.ai/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
