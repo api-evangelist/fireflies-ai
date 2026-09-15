@@ -1,14 +1,12 @@
 aid: fireflies-ai
 name: Fireflies.ai
-description: >-
-  Fireflies.ai is an AI meeting assistant that records, transcribes, summarizes,
-  searches, and analyzes voice conversations across Zoom, Google Meet, Microsoft
-  Teams, Webex, and dialed calls. It offers 95%+ transcription accuracy in 100+
-  languages, AI-generated summaries with action items, conversation analytics,
-  soundbites, and the AskFred assistant. Developers integrate via a public GraphQL
-  API (bearer-token auth, with OAuth 2.0 for apps and the hosted MCP server) that
-  exposes transcripts, users, channels, analytics, audio upload, live-meeting bot
-  control, webhooks, and a WebSocket Realtime transcription stream.
+description: Fireflies.ai is an AI meeting assistant that records, transcribes, summarizes, searches,
+  and analyzes voice conversations across Zoom, Google Meet, Microsoft Teams, Webex, and dialed calls.
+  It offers 95%+ transcription accuracy in 100+ languages, AI-generated summaries with action items, conversation
+  analytics, soundbites, and the AskFred assistant. Developers integrate via a public GraphQL API (bearer-token
+  auth, with OAuth 2.0 for apps and the hosted MCP server) that exposes transcripts, users, channels,
+  analytics, audio upload, live-meeting bot control, webhooks, and a WebSocket Realtime transcription
+  stream.
 url: https://raw.githubusercontent.com/api-evangelist/fireflies-ai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -64,12 +62,11 @@ tags_raw:
 - MCP
 - Productivity
 apis:
-- aid: fireflies-ai-graphql
+- aid: fireflies-ai:fireflies-ai-graphql
   name: Fireflies.ai GraphQL API
-  description: >-
-    Public GraphQL API for Fireflies.ai — query transcripts, users, channels,
-    bites, analytics, and AskFred threads; upload audio; control the live-meeting
-    bot; and subscribe to webhooks. Single endpoint, bearer-token authenticated.
+  description: Public GraphQL API for Fireflies.ai — query transcripts, users, channels, bites, analytics,
+    and AskFred threads; upload audio; control the live-meeting bot; and subscribe to webhooks. Single
+    endpoint, bearer-token authenticated.
   humanURL: https://docs.fireflies.ai/
   baseURL: https://api.fireflies.ai/graphql
   tags:
